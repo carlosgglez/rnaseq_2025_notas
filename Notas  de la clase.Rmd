@@ -1,0 +1,32 @@
+---
+title: "Notas"
+author: "García Carlos"
+date: "2025-01-29"
+output: 
+  pdf_document:
+    toc: yes
+    toc_depth: 6
+---
+
+## Bioconductor 
+Todos los paquetes de bioconductor tienen una **"vignettes"** que son documentos en donde prueban los paquetes y su documentación, además de que diario lo evaluan sus paquetes en varios sistemas operativos para saber su funcionalidad y que no esten fallando.
+
+Enla página de [Bioconductor](https://www.bioconductor.org/) puedes revisar los paquetes que hay actualmente, habíendo 4 tipos:
+
+  - Paquetes de software
+  - De anotación
+  - De datos experimentales
+  - De Workflow.
+
+Los paquetes no son exclusivos de un solo tipo, pueden entre conectarse o tener más de una funcionalidad.
+
+Los paquetes se instalan de diferente manera entre Bioconductor y de Cran, para instalar un paquete de bioconductor, debes de usar la función de **BiocManager::install**, con el no solo puede instalar paquete de Bioconductor, si no también de Cran.
+
+Cada paquete es un directorio.
+En Bioconductor es que la gran mayoría de tus funciones tengan ejemplos de uso que se puedan ejecutar, para asegurar su uso, además que tienen un control de versiones, donde los autores dicen que es lo que se fue actualizando.
+
+A bioconductor lo actualizan dos veces al año, es decir, cada 6 meses en abril y octubre, R se actualiza una vez al año en el mes de abril.
+
+
+## Ejercicio Grupal
+
