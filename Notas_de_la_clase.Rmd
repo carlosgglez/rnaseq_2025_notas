@@ -110,6 +110,5 @@ rse[1:2, ]
 rse[, c("A", "D", "F")]
 
 
-library("iSEE")
-iSEE::iSEE(rse)
+
 ```
