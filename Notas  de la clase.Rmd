@@ -29,4 +29,13 @@ A bioconductor lo actualizan dos veces al año, es decir, cada 6 meses en abril 
 
 
 ## Ejercicio Grupal
+El paquete que elegí se llama [**"Curated Data from The Cancer Genome Atlas (TCGA) as MultiAssayExperiment Objects"**](https://www.bioconductor.org/packages/release/data/experiment/html/curatedTCGAData.html) el cual es un paquete enfocado en poder acceder a los datos públicos disponibles de la base de datos llamada [**"The Cancer Genome Atlas"** (TCGA)](https://www.cancer.gov/ccg/research/genome-sequencing/tcga).
 
+La **TCGA**  es un programa de genómica del cáncer de referencia, caracterizó molecularmente más de 20.000 cánceres primarios y comparó muestras normales de 33 tipos de cáncer. 
+
+El paquete cuenta con un manual para poder usarlo con buena documentación e información para usar, desde como instalarlo, como citarlo, descargar datasets, entre otras más funciones.
+
+El paquete se encuentra en el top 22 de de paquetes de la sección de **"ExperimentData"**, además de que tienen un [**GitHub**](https://github.com/waldronlab/curatedTCGAData/issues) especializado para responder preguntas y dudas, además dentro de la misma página de Bioconductor en la que se han realizado preguntas.
+
+
+## 
