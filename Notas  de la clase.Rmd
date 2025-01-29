@@ -1,0 +1,10 @@
+---
+title: "Notas"
+author: "García Carlos"
+date: "2025-01-29"
+output: pdf_document
+---
+
+## Bioconductor 
+Todos los paquetes de bioconductor tienen una **"vignettes"** que son documentos en donde prueban los paquetes y su documentación, además de que diario lo evaluan sus paquetes en varios sistemas operativos para saber su funcionalidad y que no esten fallando.
+
