@@ -38,4 +38,6 @@ El paquete cuenta con un manual para poder usarlo con buena documentación e inf
 El paquete se encuentra en el top 22 de de paquetes de la sección de **"ExperimentData"**, además de que tienen un [**GitHub**](https://github.com/waldronlab/curatedTCGAData/issues) especializado para responder preguntas y dudas, además dentro de la misma página de Bioconductor en la que se han realizado preguntas.
 
 
-## 
+## Summarized Experiment
+
+![The integrative data container](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpdLLAYr50gW-4bi6ZNZJfy3WZRdeg3QpDrQ&s)
