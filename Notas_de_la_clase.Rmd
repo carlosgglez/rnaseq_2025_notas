@@ -111,4 +111,29 @@ rse[, c("A", "D", "F")]
 
 
 
+## Explora el objeto rse de forma interactiva
+library("iSEE")
+iSEE::iSEE(rse)
 ```
+
+
+
+```{r}
+
+## Descarguemos unos datos de spatialLIBD
+sce_layer <- spatialLIBD::fetch_data("sce_layer")
+
+```
+
+
+## Proyecto Recount
+
+La primera versión salio en el 2021 y se escribia **ReCount**.
+
+Procesar de forma uniforme permite mejor su uso y una "estandarización" de cosas estadísticas.
+
+El *recount2* no pudo tener el 2, porque nunca existio como tal en recount 1, en este se analizan 70 mil muestras de RNA-seq de humanos.
+En recount2 tiene acceso a datos del TCGA.
+
+Tiempo después se volvio a actualizar recount y se hizo recount3 siendo 700 mil muestras de RNA-seq que son utilizables.
+
