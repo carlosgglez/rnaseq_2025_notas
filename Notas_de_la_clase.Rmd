@@ -113,7 +113,7 @@ rse[, c("A", "D", "F")]
 
 ## Explora el objeto rse de forma interactiva
 library("iSEE")
-iSEE::iSEE(rse)
+# iSEE::iSEE(rse)
 ```
 
 
@@ -137,3 +137,130 @@ En recount2 tiene acceso a datos del TCGA.
 
 Tiempo después se volvio a actualizar recount y se hizo recount3 siendo 700 mil muestras de RNA-seq que son utilizables.
 
+```{r}
+
+# Como descargar y utilizar datos de recount 3
+
+library(recount3) # Carga todas las dependencias necesarias
+
+```
+
+
+``` {r}
+
+## Revisemos todos los proyectos con datos de humano en recount3
+human_projects <- available_projects()
+
+
+
+## Encuentra tu proyecto de interés. Aquí usaremos
+## SRP009615 de ejemplo
+proj_info <- subset(
+    human_projects,
+    project == "SRP009615" & project_type == "data_sources"
+)
+## Crea un objeto de tipo RangedSummarizedExperiment (RSE)
+## con la información a nivel de genes
+rse_gene_SRP009615 <- create_rse(proj_info)
+
+## Explora el objeto RSE
+rse_gene_SRP009615
+
+
+## Explora los proyectos disponibles de forma interactiva
+proj_info_interactive <- interactiveDisplayBase::display(human_projects)
+## Selecciona un solo renglón en la tabla y da click en "send".
+
+## Aquí verificamos que solo seleccionaste un solo renglón.
+stopifnot(nrow(proj_info_interactive) == 1)
+## Crea el objeto RSE
+rse_gene_interactive <- create_rse(proj_info_interactive)
+
+
+
+## Convirtamos las cuentas por nucleotido a cuentas por lectura
+## usando compute_read_counts().
+## Para otras transformaciones como RPKM y TPM, revisa transform_counts().
+assay(rse_gene_SRP009615, "counts") <- compute_read_counts(rse_gene_SRP009615)
+
+
+
+## Para este estudio en específico, hagamos más fácil de usar la
+## información del experimento
+rse_gene_SRP009615 <- expand_sra_attributes(rse_gene_SRP009615)
+colData(rse_gene_SRP009615)[
+    ,
+    grepl("^sra_attribute", colnames(colData(rse_gene_SRP009615)))
+]
+```
+
+
+
+
+## PODCARTS
+
+```{r}
+## Puedes instalar Postcards con el siguiente comando:
+install.packages("postcards")
+
+## O puedes instalar la última versión en desarrollo:
+remotes::install_github("seankross/postcards@main")
+```
+
+
+## Postcards
+
+```{r}
+
+## Puedes instalar Postcards con el siguiente comando:
+install.packages("postcards")
+
+## O puedes instalar la última versión en desarrollo:
+remotes::install_github("seankross/postcards@main")
+
+```
+
+
+## Modelos Estadísticos
+
+```{r}
+## ?model.matrix
+mat <- with(trees, model.matrix(log(Volume) ~ log(Height) + log(Girth)))
+mat
+
+
+colnames(mat)
+
+summary(lm(log(Volume) ~ log(Height) + log(Girth), data = trees))
+
+
+## Datos de ejemplo
+(sampleData <- data.frame(
+    genotype = rep(c("A", "B"), each = 4),
+    treatment = rep(c("ctrl", "trt"), 4)
+))
+
+
+## Creemos las imágenes usando ExploreModelMatrix
+vd <- ExploreModelMatrix::VisualizeDesign(
+    sampleData = sampleData,
+    designFormula = ~ genotype + treatment,
+    textSizeFitted = 4
+)
+
+## Veamos las imágenes
+cowplot::plot_grid(plotlist = vd$plotlist)
+
+## Usaremos shiny otra ves
+app <- ExploreModelMatrix(
+    sampleData = sampleData,
+    designFormula = ~ genotype + treatment
+)
+if (interactive()) shiny::runApp(app)
+
+```
+
+
+Para llevar a cabo un análisis de expresión diferencial, es fundamental construir un modelo que ayude a interpretar correctamente cada columna de la matriz de datos. En este sentido, la función ExploreModelMatrix resulta muy útil para examinar la estructura de la matriz y la relación entre sus columnas.
+
+Además, la visualización de los datos juega un papel clave en el análisis. Una de las opciones más utilizadas actualmente es el volcano plot, ya que permite identificar de manera clara los genes con mayor diferencia en su expresión.
